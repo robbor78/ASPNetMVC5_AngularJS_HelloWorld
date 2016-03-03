@@ -7,11 +7,13 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.Framework.Configuration.Json;
-using Microsoft.Framework.ConfigurationModel;
+//using Microsoft.Framework.ConfigurationModel;
 
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Data.Entity;
+
 
 namespace HelloWorld_ASPNetMVC5_AJS
 {
@@ -34,12 +36,17 @@ namespace HelloWorld_ASPNetMVC5_AJS
 
     public void ConfigureServices(IServiceCollection services)
     {
+      //var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNet5.NewDb;Trusted_Connection=True;";
+      var connection = @"Server=.\SQLEXPRESS;Database=EFGetStarted.AspNet5.NewDb;Trusted_Connection=True;";
+
       services.AddMvc();
+
+      connection = Configuration.Get<string>("Data:DefaultConnection:ConnectionString");
 
       // Register Entity Framework
       services.AddEntityFramework()
           .AddSqlServer()
-          .AddDbContext<MoviesAppContext>();
+          .AddDbContext<MoviesAppContext>(options => options.UseSqlServer(connection));
     }
 
     public void Configure(IApplicationBuilder app)
