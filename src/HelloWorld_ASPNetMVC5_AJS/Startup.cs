@@ -19,6 +19,7 @@ namespace HelloWorld_ASPNetMVC5_AJS
 
     public void Configure(IApplicationBuilder app)
     {
+      app.UseStaticFiles();
       app.UseMvc();
     }
 
