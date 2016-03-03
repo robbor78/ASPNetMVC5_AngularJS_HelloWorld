@@ -1,5 +1,6 @@
-﻿//Reference: http://stephenwalther.com/archive/2015/01/16/asp-net-5-and-angularjs-part-3-adding-client-routing
-
+﻿//Reference: http://stephenwalther.com/archive/2015/01/12/asp-net-5-and-angularjs-part-1-configuring-grunt-uglify-and-angularjs
+//Reference: http://stephenwalther.com/archive/2015/01/16/asp-net-5-and-angularjs-part-3-adding-client-routing
+//Reference: http://stephenwalther.com/archive/2015/01/17/asp-net-5-and-angularjs-part-4-using-entity-framework-7
 
 using HelloWorld_ASPNetMVC5_AJS.Models;
 using Microsoft.AspNet.Builder;
