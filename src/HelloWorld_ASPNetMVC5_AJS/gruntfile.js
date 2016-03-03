@@ -19,11 +19,11 @@ module.exports = function (grunt) {
             },
         },
 
-        uglify: {
-            my_target: {
-                files: { 'wwwroot/app.js': ['Scripts/app.js', 'Scripts/**/*.js'] }
-            }
-        },
+        //uglify: {
+        //    my_target: {
+        //        files: { 'wwwroot/app.js': ['Scripts/app.js', 'Scripts/**/*.js'] }
+        //    }
+        //},
 
         watch: {
             scripts: {

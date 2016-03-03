@@ -5,7 +5,7 @@
 
     //create a new angular module called moviesApp
     angular.module('moviesApp', [
-        'ngRoutes', 'moviesServices' //module moviesApp depends on module ngRoutes and moviesServices
+        'ngRoute', 'moviesServices' //module moviesApp depends on module ngRoutes and moviesServices
     ]).config(config);
 
     function config($routeProvider, $locationProvider) {

@@ -5,7 +5,7 @@
 
     //create a new angular module called moviesApp
     angular.module('moviesApp', [
-        'ngRoutes', 'moviesServices' //module moviesApp depends on module ngRoutes and moviesServices
+        'ngRoute', 'moviesServices' //module moviesApp depends on module ngRoutes and moviesServices
     ]).config(config);
 
     function config($routeProvider, $locationProvider) {
@@ -79,9 +79,10 @@
 ;(function () {
     'use strict';
 
-    var moviesServices = angular
-        .module('moviesServices', ['ngResource'])
-    .factory('Movies', Movies);
+    //var moviesServices =
+    angular
+    .module('moviesServices', ['ngResource'])
+.factory('Movies', Movies);
 
     Movies.$inject = ['$resource'];
 

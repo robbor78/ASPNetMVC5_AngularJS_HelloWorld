@@ -1,9 +1,10 @@
 ﻿(function () {
     'use strict';
 
-    var moviesServices = angular
-        .module('moviesServices', ['ngResource'])
-    .factory('Movies', Movies);
+    //var moviesServices =
+    angular
+    .module('moviesServices', ['ngResource'])
+.factory('Movies', Movies);
 
     Movies.$inject = ['$resource'];
 

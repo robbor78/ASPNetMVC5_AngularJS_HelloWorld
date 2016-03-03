@@ -22,6 +22,17 @@ namespace HelloWorld_ASPNetMVC5_AJS.API
             };
     }
 
+    [HttpGet("{id:int}")]
+    public IActionResult Get(int id)
+    {
+      return new ObjectResult(new Movie
+      {
+        Id = 1,
+        Title = "Star Wars",
+        Director = "Lucas"
+      });
+    }
+
     //// GET: api/values
     //[HttpGet]
     //public IEnumerable<string> Get()
