@@ -3,7 +3,6 @@
 /// <reference path="../gulpfile.js" />
 /// <reference path="../scripts/app.js" />
 /// <reference path="../scripts/services/moviesservice.js" />
-/// <reference path="app.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

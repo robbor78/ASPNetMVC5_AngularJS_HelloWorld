@@ -6,8 +6,19 @@ module.exports = function (grunt) {
     // load Grunt plugins from NPM
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.initConfig({
+        concat: {
+            options: {
+                separator: ';',
+            },
+            dist: {
+                src: ['Scripts/app.js', 'Scripts/**/*.js'],
+                dest: 'wwwroot/app.js',
+            },
+        },
+
         uglify: {
             my_target: {
                 files: { 'wwwroot/app.js': ['Scripts/app.js', 'Scripts/**/*.js'] }
@@ -17,12 +28,12 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['Scripts/**/*.js'],
-                tasks: ['uglify']
+                tasks: ['concat']
             }
         }
     });
 
     // define tasks
-    grunt.registerTask('default', ['uglify', 'watch']);
+    grunt.registerTask('default', ['concat', 'watch']);
 };
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Reference: http://stephenwalther.com/archive/2015/01/16/asp-net-5-and-angularjs-part-3-adding-client-routing
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
