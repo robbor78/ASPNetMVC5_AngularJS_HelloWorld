@@ -41,9 +41,10 @@
             .controller('MoviesDeleteController', MoviesDeleteController)
     .controller('DatePickerController', DatePickerController);
 
-    MoviesListController.$inject = ['$scope', 'Movies']; //required for minification
+    MoviesListController.$inject = ['$scope', 'Movies', 'canEdit']; //required for minification
     //Movies parameter refers to the moviesServices
-    function MoviesListController($scope, Movies) {
+    function MoviesListController($scope, Movies, canEdit) {
+        $scope.canEdit = canEdit;
         $scope.movies = Movies.query(); //call the moviesServices
     }
 

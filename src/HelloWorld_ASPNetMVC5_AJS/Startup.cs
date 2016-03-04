@@ -44,8 +44,6 @@ namespace HelloWorld_ASPNetMVC5_AJS
       //var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNet5.NewDb;Trusted_Connection=True;";
       var connection = @"Server=.\SQLEXPRESS;Database=EFGetStarted.AspNet5.NewDb;Trusted_Connection=True;";
 
-      services.AddMvc();
-
       connection = Configuration.Get<string>("Data:DefaultConnection:ConnectionString");
 
       // Register Entity Framework
@@ -55,13 +53,22 @@ namespace HelloWorld_ASPNetMVC5_AJS
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
       .AddEntityFrameworkStores<MoviesAppContext>();
+
+      // add ASP.NET MVC
+      services.AddMvc();
     }
 
     public void Configure(IApplicationBuilder app)
     {
       app.UseStaticFiles();
       app.UseIdentity();
-      app.UseMvc();
+      //app.UseMvc();
+      app.UseMvc(routes =>
+      {
+        routes.MapRoute(
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
+      });
 
       CreateSampleData(app.ApplicationServices).Wait();
     }

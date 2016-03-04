@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using HelloWorld_ASPNetMVC5_AJS.Models;
+using Microsoft.AspNet.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -39,6 +40,7 @@ namespace HelloWorld_ASPNetMVC5_AJS.API
     }
 
     [HttpPost]
+    [Authorize("CanEdit")]
     public IActionResult Post([FromBody]Movie movie)
     {
       if (ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace HelloWorld_ASPNetMVC5_AJS.API
 
 
     [HttpDelete("{id:int}")]
+    [Authorize("CanEdit")]
     public IActionResult Delete(int id)
     {
       var movie = _dbContext.Movies.FirstOrDefault(m => m.Id == id);
