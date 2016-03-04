@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Data.Entity;
-
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HelloWorld_ASPNetMVC5_AJS
 {
@@ -48,11 +48,15 @@ namespace HelloWorld_ASPNetMVC5_AJS
       services.AddEntityFramework()
           .AddSqlServer()
           .AddDbContext<MoviesAppContext>(options => options.UseSqlServer(connection));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+      .AddEntityFrameworkStores<MoviesAppContext>();
     }
 
     public void Configure(IApplicationBuilder app)
     {
       app.UseStaticFiles();
+      app.UseIdentity();
       app.UseMvc();
     }
 

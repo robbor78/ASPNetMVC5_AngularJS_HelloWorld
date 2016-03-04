@@ -23,7 +23,14 @@
     "EntityFramework.Core": "7.0.0-rc1-final",
     "Microsoft.Framework.Configuration": "1.0.0-*",
     "Microsoft.Framework.Configuration.Json": "1.0.0-*",
-    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+
+
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-rc1-final",
+    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+    "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc1-final"
   },
 
   "commands": {
