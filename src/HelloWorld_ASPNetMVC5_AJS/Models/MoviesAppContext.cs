@@ -1,4 +1,7 @@
-﻿using Microsoft.Data.Entity;
+﻿//c:\Users\RHartleb\code\AngularJS\HelloWorld_ASPNetMVC5_AJS\src\HelloWorld_ASPNetMVC5_AJS>
+//dnx ef migrations --help
+//dnx ef database update
+using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Infrastructure;
 using System;
 using System.Collections.Generic;

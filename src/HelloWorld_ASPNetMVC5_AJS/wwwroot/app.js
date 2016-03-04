@@ -38,7 +38,8 @@
         .controller('MoviesListController', MoviesListController)
     .controller('MoviesAddController', MoviesAddController)
         .controller('MoviesEditController', MoviesEditController)
-            .controller('MoviesDeleteController', MoviesDeleteController);
+            .controller('MoviesDeleteController', MoviesDeleteController)
+    .controller('DatePickerController', DatePickerController);
 
     MoviesListController.$inject = ['$scope', 'Movies']; //required for minification
     //Movies parameter refers to the moviesServices
@@ -52,7 +53,11 @@
         $scope.add = function () {
             $scope.movie.$save(function () {
                 $location.path('/');
-            });
+            },
+            function (error) {
+                _showValidationErrors($scope, error);
+            }
+            );
         };
     }
 
@@ -62,7 +67,11 @@
         $scope.edit = function () {
             $scope.movie.$save(function () {
                 $location.path('/');
-            });
+            },
+            function (error) {
+                _showValidationErrors($scope, error);
+            }
+            );
         };
     }
 
@@ -74,6 +83,28 @@
                 $location.path('/');
             });
         };
+    }
+
+    DatePickerController.$inject = ['$scope'];
+
+    function DatePickerController($scope) {
+        $scope.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.opened = true;
+        };
+    }
+
+    function _showValidationErrors($scope, error) {
+        $scope.validationErrors = [];
+        if (error.data && angular.isObject(error.data)) {
+            for (var key in error.data) {
+                $scope.validationErrors.push(error.data[key][0]);
+            }
+        } else {
+            $scope.validationErrors.push('Could not add movie.');
+        };
+
     }
 })();
 ;(function () {
